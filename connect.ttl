@@ -1,0 +1,19 @@
+; Connect to Synology NAS (etc) via SSH using TeraTerm macro.
+
+username = '(username)'
+hostname = '(ex: 192.168.xxx.xxx)'
+userpasswd = '(password)'
+portnum = '(ex: 22)'
+
+msg = hostname
+strconcat msg ':'
+strconcat msg portnum
+strconcat msg '/ssh /auth=password /user='
+strconcat msg username
+strconcat msg ' /passwd='
+strconcat msg userpasswd
+
+connect msg
+
+wait '$'
+top
